@@ -1,13 +1,14 @@
 """
 ui/member_form_frame.py
 Location : gym_app/members/ui/member_form_frame.py
-Purpose  : The layout for registering a new member with a scrollable UI.
+Purpose  : The layout for registering a new member, now with silent API WhatsApp automation.
 """
 import tkinter as tk
 from datetime import date
+import threading
 
-# Adjust these imports if your folder structure differs slightly
 from gym_app.members.service.member_service import MemberService
+from gym_app.notifications.whatsapp_service import WhatsAppService
 from gym_app.ui.components import (
     Card, EntryField, PrimaryButton,
     COLOR_BG, COLOR_CARD, COLOR_TEXT, COLOR_MUTED, FONT_FAMILY,
@@ -205,6 +206,17 @@ class MemberFormFrame(tk.Frame):
 
             self._status_lbl.config(
                 text=f"Registered successfully! Code: {member.member_code}", fg="#B8C4A9")
+            
+            # ── SILENT API WHATSAPP AUTOMATION ──
+            target_number = whatsapp if whatsapp else phone
+            
+            # Run the API call in a tiny background thread so even if the internet 
+            # is slightly slow, the app UI doesn't stutter for a split second.
+            threading.Thread(
+                target=WhatsAppService.send_welcome_message, 
+                args=(target_number, name), 
+                daemon=True
+            ).start()
             
             # Close the form after 1.5 seconds
             self.after(1500, self._on_cancel)

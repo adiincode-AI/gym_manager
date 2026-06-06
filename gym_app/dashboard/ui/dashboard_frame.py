@@ -1,5 +1,11 @@
+"""
+ui/dashboard_frame.py
+Location : gym_app/dashboard/ui/dashboard_frame.py
+Purpose  : The main admin dashboard with real-time search.
+"""
 import tkinter as tk
 from typing import Callable
+
 from gym_app.dashboard.service.dashboard_service import DashboardService
 from gym_app.members.service.member_service import MemberService
 from gym_app.members.models.member import Member
@@ -16,28 +22,24 @@ class AdminDashboardFrame(tk.Frame):
         self._on_add_member = on_add_member
         self._on_view_members = on_view_members
         
-        # FIX 1: Initialize a variable to hold the search delay timer
         self._search_timer = None
         
         self._build_layout()
         self._load_data()
 
     def _build_layout(self) -> None:
-        # 1. Header Bar
         header = tk.Frame(self, bg=COLOR_BG)
         header.pack(fill="x", padx=PAD_LG, pady=PAD_LG)
         
         tk.Label(header, text="The Iron Temple GYM", font=(FONT_FAMILY, 24, "bold"), bg=COLOR_BG, fg=COLOR_TEXT).pack(side="left")
         tk.Button(header, text="Log Out", command=self._on_logout, font=(FONT_FAMILY, 10), bg="#ff4d4d", fg="white", relief="flat", padx=10).pack(side="right")
 
-        # 2. Stats Section
         self._stats_frame = tk.Frame(self, bg=COLOR_BG)
         self._stats_frame.pack(fill="x", padx=PAD_LG, pady=(0, PAD_LG))
 
         self._lbl_members = self._create_stat_card(self._stats_frame, "Active Members", "0")
         self._lbl_expiring = self._create_stat_card(self._stats_frame, "Expiring Soon", "0")
 
-        # 3. Quick Actions Navigation Grid
         tk.Label(self, text="Quick Actions", font=(FONT_FAMILY, 16, "bold"), bg=COLOR_BG, fg=COLOR_TEXT).pack(anchor="w", padx=PAD_LG, pady=(PAD_LG, PAD_SM))
         
         nav_grid = tk.Frame(self, bg=COLOR_BG)
@@ -47,7 +49,6 @@ class AdminDashboardFrame(tk.Frame):
         self._create_nav_card(nav_grid, "👥 Member Database", self._nav_member_db)
         self._create_nav_card(nav_grid, "🔔 Send Reminders", self._nav_reminders)
 
-        # 4. Split Content Section
         main_content = tk.Frame(self, bg=COLOR_BG)
         main_content.pack(fill="both", expand=True, padx=PAD_LG, pady=PAD_LG)
 
@@ -107,7 +108,6 @@ class AdminDashboardFrame(tk.Frame):
         self._lbl_members.config(text=f"{stats.active_members} / {stats.total_members}")
         self._lbl_expiring.config(text=str(stats.expiring_soon), fg="#DC2626" if stats.expiring_soon > 0 else COLOR_TEXT)
 
-        # Clear only the alerts container
         for c in self._alerts_container.winfo_children(): c.destroy()
 
         expiring = self._member_service.get_expiring_members()
@@ -122,17 +122,11 @@ class AdminDashboardFrame(tk.Frame):
                 tk.Label(row, text=f"Exp: {m.expiry_date}", font=(FONT_FAMILY, 9, "bold"), bg="white", fg="#DC2626").pack(side="right")
 
     def _on_search_change(self, *args) -> None:
-        """Called every time the user types a letter in the search box."""
-        # FIX 1: Debouncing implementation
-        # If the user types another letter before 300ms is up, cancel the old timer.
         if self._search_timer is not None:
             self.after_cancel(self._search_timer)
-            
-        # Schedule the actual database search to run 300ms from now.
         self._search_timer = self.after(300, self._execute_search)
 
     def _execute_search(self) -> None:
-        """The actual search logic, pulled out of the keystroke event."""
         query = self._search_var.get().strip()
         if not query or "Search Name" in query or len(query) < 2:
             self._results_frame.pack_forget()
@@ -179,7 +173,6 @@ class AdminDashboardFrame(tk.Frame):
         popup.transient(self.winfo_toplevel())
         popup.grab_set()
         
-        # FIX 2: Bind the OS 'X' button to safely destroy the popup and release the grab lock
         popup.protocol("WM_DELETE_WINDOW", popup.destroy)
         
         main_box = tk.Frame(popup, bg="white", highlightbackground="#E2E8F0", highlightthickness=1, padx=24, pady=24)
