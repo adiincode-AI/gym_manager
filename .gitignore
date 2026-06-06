@@ -1,0 +1,9 @@
+
+__pycache__/
+*.py[cod]
+*.class
+*.sqlite3
+*.db
+gym.db
+.env
+

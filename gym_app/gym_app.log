@@ -1,0 +1,39 @@
+2026-06-05 11:22:01,742 [WARNING] app: Default admin account created (username=admin, password=admin123). Change this password immediately.
+2026-06-05 11:23:14,474 [INFO] app: Gym Manager started.
+2026-06-05 11:23:51,842 [INFO] app: Gym Manager started.
+2026-06-05 11:26:38,314 [INFO] app: Gym Manager started.
+2026-06-05 11:26:49,017 [INFO] auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-05 11:26:49.
+2026-06-05 11:26:49,639 [INFO] app: Login successful – user='admin' role='admin'.
+2026-06-05 11:26:53,350 [INFO] auth.service.auth_service: User 'admin' logged out.
+2026-06-05 11:27:00,559 [INFO] auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-05 11:27:00.
+2026-06-05 11:27:01,165 [INFO] app: Login successful – user='admin' role='admin'.
+2026-06-05 11:27:10,188 [INFO] auth.service.auth_service: User 'admin' logged out.
+2026-06-05 11:31:32,691 [INFO] app: Gym Manager started.
+2026-06-05 11:31:43,704 [INFO] auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-05 11:31:43.
+2026-06-05 11:31:44,313 [INFO] app: Login successful – user='admin' role='admin'.
+2026-06-05 11:31:45,701 [INFO] auth.service.auth_service: User 'admin' logged out.
+2026-06-05 11:37:32,511 [INFO] app: Gym Manager started.
+2026-06-05 11:38:39,368 [INFO] app: Gym Manager started.
+2026-06-05 11:39:59,103 [INFO] app: Gym Manager started.
+2026-06-05 11:41:57,006 [INFO] app: Gym Manager started.
+2026-06-05 11:43:42,019 [INFO] app: Gym Manager started.
+2026-06-05 11:43:46,988 [INFO] auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-05 11:43:46.
+2026-06-05 11:43:47,594 [INFO] app: Login successful – user='admin' role='admin'.
+2026-06-05 11:43:49,005 [INFO] auth.service.auth_service: User 'admin' logged out.
+2026-06-05 11:45:01,007 [INFO] app: Gym Manager started.
+2026-06-05 11:45:31,798 [INFO] app: Gym Manager started.
+2026-06-05 11:47:20,518 [INFO] auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-05 11:47:20.
+2026-06-05 11:47:21,130 [INFO] app: Login successful – user='admin' role='admin'.
+2026-06-05 11:47:22,645 [INFO] auth.service.auth_service: User 'admin' logged out.
+2026-06-05 11:50:51,507 [INFO] app: Gym Manager started.
+2026-06-05 11:51:06,914 [INFO] auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-05 11:51:06.
+2026-06-05 11:51:07,523 [INFO] app: Login successful – user='admin' role='admin'.
+2026-06-05 11:51:09,155 [INFO] auth.service.auth_service: User 'admin' logged out.
+2026-06-05 11:51:50,761 [INFO] app: Gym Manager started.
+2026-06-05 11:52:11,871 [INFO] app: Gym Manager started.
+2026-06-05 11:53:53,171 [INFO] app: Gym Manager started.
+2026-06-05 11:55:16,400 [INFO] app: Gym Manager started.
+2026-06-05 11:55:32,546 [INFO] app: Gym Manager started.
+2026-06-05 11:55:50,785 [INFO] auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-05 11:55:50.
+2026-06-05 11:55:51,391 [INFO] app: Login successful – user='admin' role='admin'.
+2026-06-05 11:55:53,485 [INFO] auth.service.auth_service: User 'admin' logged out.
