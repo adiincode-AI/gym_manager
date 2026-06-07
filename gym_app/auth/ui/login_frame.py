@@ -111,7 +111,7 @@ class LoginFrame(tk.Frame):
 
         tk.Label(
             parent,
-            text="The Iron Temple GYM",
+            text="The Iron Temple Gym",
             font=(FONT_FAMILY, 18, "bold"),
             fg=COLOR_TEXT,
             bg=COLOR_BG,
@@ -133,7 +133,7 @@ class LoginFrame(tk.Frame):
         # ── heading ────────────────────────────────────────────────────────────
         tk.Label(
             card,
-            text="Sign In",
+            text="Log In",
             font=(FONT_FAMILY, 16, "bold"),
             fg=COLOR_TEXT,
             bg=COLOR_CARD,
@@ -194,7 +194,7 @@ class LoginFrame(tk.Frame):
         """Version / copyright footer below the card."""
         tk.Label(
             parent,
-            text="© 2026 The Iron Temple GYM  •  v1.0.0",
+            text="© 2026 The Iron Temple Gym  •  v1.0.0",
             font=(FONT_FAMILY, 8),
             fg=COLOR_MUTED,
             bg=COLOR_BG,
@@ -265,7 +265,7 @@ class LoginFrame(tk.Frame):
     def _set_loading(self, loading: bool) -> None:
         """Disable/enable the login button during the auth call."""
         state = "disabled" if loading else "normal"
-        text  = "Signing in…" if loading else "Sign In"
+        text  = "Logging in…" if loading else "Log In"
         self._login_btn.config(state=state, text=text)
 
     def _clear_errors(self) -> None:

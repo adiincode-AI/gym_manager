@@ -31,7 +31,7 @@ class AdminDashboardFrame(tk.Frame):
         header = tk.Frame(self, bg=COLOR_BG)
         header.pack(fill="x", padx=PAD_LG, pady=PAD_LG)
         
-        tk.Label(header, text="The Iron Temple GYM", font=(FONT_FAMILY, 24, "bold"), bg=COLOR_BG, fg=COLOR_TEXT).pack(side="left")
+        tk.Label(header, text="The Iron Temple Gym", font=(FONT_FAMILY, 24, "bold"), bg=COLOR_BG, fg=COLOR_TEXT).pack(side="left")
         tk.Button(header, text="Log Out", command=self._on_logout, font=(FONT_FAMILY, 10), bg="#ff4d4d", fg="white", relief="flat", padx=10).pack(side="right")
 
         self._stats_frame = tk.Frame(self, bg=COLOR_BG)

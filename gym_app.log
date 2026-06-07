@@ -201,3 +201,29 @@
 2026-06-06 19:34:18,519 [ERROR] gym_app.notifications.whatsapp_service: WhatsApp API Error: Failed to send to YOUR_REAL_NUMBER - 404 Client Error: Not Found for url: https://api.ultramsg.com//messages/chat
 2026-06-06 19:34:19,654 [ERROR] gym_app.notifications.whatsapp_service: WhatsApp API Error: Failed to send to 910000000004 - 404 Client Error: Not Found for url: https://api.ultramsg.com//messages/chat
 2026-06-06 19:34:21,095 [ERROR] gym_app.notifications.whatsapp_service: WhatsApp API Error: Failed to send to 910000000005 - 404 Client Error: Not Found for url: https://api.ultramsg.com//messages/chat
+2026-06-07 09:24:00,912 [INFO] gym_app.app: Gym Manager started.
+2026-06-07 09:24:08,655 [INFO] gym_app.auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-07 09:24:08.
+2026-06-07 09:24:09,332 [INFO] gym_app.app: Login successful – user='admin' role='admin'.
+2026-06-07 09:24:54,208 [ERROR] gym_app.notifications.whatsapp_service: WhatsApp API Error: Failed to send to 918249785260 - 404 Client Error: Not Found for url: https://api.ultramsg.com/None/messages/chat
+2026-06-07 09:30:43,374 [INFO] gym_app.app: Gym Manager started.
+2026-06-07 09:30:50,161 [INFO] gym_app.auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-07 09:30:50.
+2026-06-07 09:30:50,823 [INFO] gym_app.app: Login successful – user='admin' role='admin'.
+2026-06-07 09:31:37,406 [INFO] gym_app.notifications.whatsapp_service: WhatsApp API: Message sent to 918249785260
+2026-06-07 09:33:56,115 [INFO] gym_app.auth.service.auth_service: User 'admin' logged out.
+2026-06-07 15:08:02,998 [INFO] gym_app.app: Gym Manager started.
+2026-06-07 15:08:12,420 [INFO] gym_app.auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-07 15:08:12.
+2026-06-07 15:08:13,124 [INFO] gym_app.app: Login successful – user='admin' role='admin'.
+2026-06-07 15:13:47,974 [INFO] gym_app.app: Gym Manager started.
+2026-06-07 15:13:54,877 [INFO] gym_app.auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-07 15:13:54.
+2026-06-07 15:13:55,554 [INFO] gym_app.app: Login successful – user='admin' role='admin'.
+2026-06-07 15:14:52,550 [INFO] gym_app.auth.service.auth_service: User 'admin' logged out.
+2026-06-07 15:14:57,377 [INFO] gym_app.app: Gym Manager started.
+2026-06-07 15:16:10,816 [INFO] gym_app.app: Gym Manager started.
+2026-06-07 15:24:23,744 [INFO] gym_app.app: Gym Manager started.
+2026-06-07 15:24:37,021 [INFO] gym_app.auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-07 15:24:37.
+2026-06-07 15:24:37,724 [INFO] gym_app.app: Login successful – user='admin' role='admin'.
+2026-06-07 15:24:56,987 [INFO] gym_app.auth.service.auth_service: User 'admin' logged out.
+2026-06-07 15:30:19,099 [INFO] gym_app.app: Gym Manager started.
+2026-06-07 15:30:25,098 [INFO] gym_app.auth.service.auth_service: User 'admin' (role=admin) logged in at 2026-06-07 15:30:25.
+2026-06-07 15:30:25,810 [INFO] gym_app.app: Login successful – user='admin' role='admin'.
+2026-06-07 15:30:53,768 [INFO] gym_app.auth.service.auth_service: User 'admin' logged out.

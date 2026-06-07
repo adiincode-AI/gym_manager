@@ -2,7 +2,7 @@ import tkinter as tk
 from datetime import date
 from gym_app.members.models.member import Member
 from gym_app.members.service.member_service import MemberService
-from gym_app.ui.components import EntryField, PrimaryButton, COLOR_CARD, COLOR_TEXT, COLOR_MUTED, FONT_FAMILY, PAD_MD, PAD_SM
+from gym_app.ui.components import EntryField, PrimaryButton, COLOR_TEXT, COLOR_MUTED, FONT_FAMILY, PAD_MD, PAD_SM
 from tkinter import messagebox
 
 class EditMemberDialog(tk.Toplevel):
@@ -15,18 +15,30 @@ class EditMemberDialog(tk.Toplevel):
         self.title(f"Edit Member Profile — {member.member_code}")
         self.geometry("450x650")
         self.config(bg="white")
-        self.transient(parent) # Locks focus over main frame window
+        self.transient(parent)
         self.grab_set()
         
         self._build_layout()
 
     def _build_layout(self) -> None:
-        container = tk.Frame(self, bg="white", padx=20, pady=20)
-        container.pack(fill="both", expand=True)
+        # Create a scrollable canvas wrapper to prevent button cutoff
+        canvas = tk.Canvas(self, bg="white", highlightthickness=0)
+        scrollbar = tk.Scrollbar(self, orient="vertical", command=canvas.yview)
+        container = tk.Frame(canvas, bg="white", padx=20, pady=20)
 
+        container.bind(
+            "<Configure>",
+            lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+        )
+        canvas.create_window((0, 0), window=container, anchor="nw", width=410)
+        canvas.configure(yscrollcommand=scrollbar.set)
+
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+
+        # UI Elements
         tk.Label(container, text=f"Modify Details: {self._member.member_code}", font=(FONT_FAMILY, 14, "bold"), bg="white", fg=COLOR_TEXT).pack(anchor="w", pady=(0, PAD_MD))
 
-        # Fields Pre-loaded with current data records
         self._name_field = EntryField(container, label="FULL NAME", width=35)
         self._name_field.pack(fill="x", pady=(0, PAD_SM))
         self._name_field._entry.insert(0, self._member.full_name)
@@ -39,7 +51,6 @@ class EditMemberDialog(tk.Toplevel):
         self._whatsapp_field.pack(fill="x", pady=(0, PAD_SM))
         self._whatsapp_field._entry.insert(0, self._member.whatsapp)
 
-        # Age & Gender side-by-side row
         meta_row = tk.Frame(container, bg="white")
         meta_row.pack(fill="x", pady=(0, PAD_SM))
         meta_row.columnconfigure(0, weight=1)
@@ -64,19 +75,16 @@ class EditMemberDialog(tk.Toplevel):
         self._address_field.pack(fill="x", pady=(0, PAD_SM))
         if self._member.address: self._address_field._entry.insert(0, self._member.address)
 
-        # Plan Duration Dropdown
         tk.Label(container, text="MEMBERSHIP PLAN DURATION", font=(FONT_FAMILY, 8, "bold"), fg=COLOR_MUTED, bg="white").pack(anchor="w", pady=(PAD_SM, 0))
         self._plan_var = tk.StringVar(value=self._member.plan_name)
         p_menu = tk.OptionMenu(container, self._plan_var, "1 Month Plan", "3 Month Plan", "6 Month Plan", "12 Month Plan")
         p_menu.config(font=(FONT_FAMILY, 10), bg="white", relief="groove", bd=1, highlightthickness=0)
-        p_menu.pack(fill="x", pady=(4, 0), ipady=3)
+        p_menu.pack(fill="x", pady=(4, 15), ipady=3)
 
-        # Actions Line
         btn_frame = tk.Frame(container, bg="white")
-        btn_frame.pack(fill="x", pady=(PAD_MD, 0))
+        btn_frame.pack(fill="x", pady=(PAD_MD, 20))
 
         PrimaryButton(btn_frame, text="Save Changes", command=self._handle_save).pack(side="right", padx=(PAD_SM, 0))
-        
         tk.Button(btn_frame, text="Delete Member", command=self._handle_delete, font=(FONT_FAMILY, 10, "bold"), bg="#DC2626", fg="white", relief="flat", padx=12, pady=6, cursor="hand2").pack(side="left")
 
     def _handle_save(self) -> None:

@@ -62,7 +62,7 @@ class App:
     seeds a default admin if needed, and launches the Tkinter event loop.
     """
 
-    WINDOW_TITLE = "The Iron Temple GYM"
+    WINDOW_TITLE = "The Iron Temple Gym"
     WINDOW_WIDTH = 1024
     WINDOW_HEIGHT = 700
     MIN_WIDTH = 800
