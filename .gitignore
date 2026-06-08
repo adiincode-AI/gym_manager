@@ -9,3 +9,4 @@ gym.db
 
 *.log
 gym_app.log
+*.sqbpro
